@@ -1894,13 +1894,143 @@ textarea{
   }
 }
 
+
+/* Mobile theme toggle: icon-only implied sun/moon switch */
+@media(max-width:820px){
+  .mobile-theme-float{
+    width:46px !important;
+    height:28px !important;
+    min-height:28px !important;
+    padding:0 !important;
+    gap:0 !important;
+    justify-content:center !important;
+    border-radius:999px !important;
+  }
+  .mobile-theme-float b,
+  .mobile-theme-float [data-theme-label]{
+    display:none !important;
+  }
+  .mobile-theme-float span{
+    width:34px !important;
+    height:18px !important;
+    border-radius:999px !important;
+  }
+  .mobile-theme-float span::after{
+    width:12px !important;
+    height:12px !important;
+    top:2px !important;
+    left:2px !important;
+    box-shadow:0 0 0 1px rgba(255,255,255,.18) !important;
+  }
+  body[data-theme="light"] .mobile-theme-float span::after{
+    transform:translateX(16px) !important;
+    background:#fff !important;
+  }
+}
+
+
+/* ═══ TABLET/MOBILE FULL-BLEED + FOOTER WRAP FIX ═══ */
+@media(max-width:1100px){
+  html,body{overflow-x:hidden !important;width:100% !important;}
+  .app{display:block !important;position:relative !important;min-height:100svh !important;background:#000 !important;overflow:hidden !important;}
+  .right-pane{display:block !important;position:absolute !important;inset:0 !important;width:100% !important;height:100svh !important;min-height:100svh !important;z-index:0 !important;overflow:hidden !important;border:0 !important;background:#000 !important;}
+  .right-pane .slides,.right-pane .slide{position:absolute !important;inset:0 !important;}
+  .slide::after{background:linear-gradient(90deg,rgba(0,0,0,.74) 0%,rgba(0,0,0,.48) 42%,rgba(0,0,0,.16) 100%),linear-gradient(180deg,rgba(0,0,0,.18) 0%,rgba(0,0,0,.05) 42%,rgba(0,0,0,.76) 100%) !important;}
+  .slide-ui,.scroll-cue{display:none !important;}
+  .search-pane{position:relative !important;z-index:2 !important;width:100% !important;min-height:100svh !important;border:0 !important;background:transparent !important;color:#fff !important;display:flex !important;flex-direction:column !important;}
+  .pane-inner{min-height:100svh !important;padding:84px 18px 108px !important;display:flex !important;flex-direction:column !important;justify-content:center !important;}
+  .search-pane .brand,.hero-tagline{color:#fff !important;text-shadow:0 1px 18px rgba(0,0,0,.24) !important;}
+  .hero-sub,.example-reel,.reel-text,.engine-copy{color:rgba(255,255,255,.72) !important;}
+  .search-form{margin-top:26px !important;display:grid !important;grid-template-columns:minmax(0,1fr) 38px !important;gap:10px !important;align-items:center !important;padding:12px 12px 12px 16px !important;border:1px solid rgba(255,255,255,.34) !important;border-radius:999px !important;background:rgba(0,0,0,.38) !important;backdrop-filter:blur(16px) !important;-webkit-backdrop-filter:blur(16px) !important;box-shadow:0 18px 50px rgba(0,0,0,.22) !important;}
+  #query{color:#fff !important;font-size:16px !important;}
+  #query::placeholder{color:rgba(255,255,255,.72) !important;}
+  #go{width:34px !important;height:34px !important;border-radius:50% !important;display:flex !important;align-items:center !important;justify-content:center !important;background:#fff !important;color:#050505 !important;font-size:18px !important;}
+  .pane-footer{position:absolute !important;left:0 !important;right:0 !important;bottom:0 !important;z-index:3 !important;padding:14px 18px calc(14px + env(safe-area-inset-bottom)) !important;border-top:1px solid rgba(255,255,255,.18) !important;background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.42)) !important;color:rgba(255,255,255,.58) !important;display:grid !important;grid-template-columns:minmax(0,1fr) auto !important;gap:10px !important;align-items:center !important;font-size:clamp(7px,1.75vw,9px) !important;}
+  .footer-copy{white-space:nowrap !important;overflow:visible !important;text-overflow:clip !important;color:rgba(255,255,255,.58) !important;}
+  .pane-footer > div{display:flex !important;gap:10px !important;align-items:center !important;min-width:max-content !important;}
+  .pane-footer span{color:rgba(255,255,255,.58) !important;white-space:nowrap !important;}
+  .pane-footer [data-theme-switch]{display:none !important;}
+  .footer-btn{color:rgba(255,255,255,.58) !important;}
+  .mobile-theme-float{display:inline-flex !important;}
+}
+@media(max-width:520px){
+  .pane-footer{padding-left:14px !important;padding-right:14px !important;gap:8px !important;grid-template-columns:auto auto !important;justify-content:space-between !important;}
+  .footer-copy{font-size:7px !important;letter-spacing:.055em !important;}
+  .pane-footer > div{gap:8px !important;}
+  .pane-footer > div > span,.footer-btn{font-size:7px !important;letter-spacing:.055em !important;}
+}
+@media(max-width:380px){
+  .pane-footer{font-size:6px !important;gap:6px !important;}
+  .footer-copy,.pane-footer > div > span,.footer-btn{font-size:6px !important;letter-spacing:.035em !important;}
+  .pane-footer > div{gap:6px !important;}
+}
+
+
+/* ═══ FOOTER COPYRIGHT WRAP FIX — desktop + tablet ═══ */
+.pane-footer{
+  display:grid !important;
+  grid-template-columns:minmax(0,1fr) auto !important;
+  align-items:center !important;
+  gap:10px !important;
+}
+.footer-copy{
+  white-space:nowrap !important;
+  overflow:visible !important;
+  text-overflow:clip !important;
+  min-width:0 !important;
+  font-size:clamp(6px,.68vw,9px) !important;
+  letter-spacing:.075em !important;
+  line-height:1 !important;
+}
+.pane-footer > div{
+  min-width:max-content !important;
+  flex-shrink:0 !important;
+}
+.pane-footer > div > span,
+.footer-btn{
+  white-space:nowrap !important;
+  font-size:clamp(6px,.68vw,9px) !important;
+  letter-spacing:.075em !important;
+}
+
+/* On narrower desktop/tablet widths, keep copyright intact and compact the controls. */
+@media(max-width:1180px){
+  .pane-footer{
+    padding-left:clamp(14px,2.2vw,28px) !important;
+    padding-right:clamp(14px,2.2vw,28px) !important;
+    gap:8px !important;
+  }
+  .footer-copy,
+  .pane-footer > div > span,
+  .footer-btn{
+    font-size:7px !important;
+    letter-spacing:.055em !important;
+  }
+  .pane-footer > div{
+    gap:8px !important;
+  }
+}
+
+/* If the left pane gets very narrow, move controls under copyright instead of breaking INC. */
+@media(min-width:821px) and (max-width:980px){
+  .pane-footer{
+    grid-template-columns:1fr !important;
+    row-gap:8px !important;
+    align-items:start !important;
+  }
+  .footer-copy{
+    width:max-content !important;
+  }
+  .pane-footer > div{
+    justify-self:start !important;
+  }
+}
+
 </style>
 </head>
 <body>
 
-<button type="button" class="mobile-theme-float" data-theme-switch aria-label="Toggle light/dark">
-  <span></span><b data-theme-label>Light</b>
-</button>
+<button type="button" class="mobile-theme-float" data-theme-switch aria-label="Toggle light/dark"><span></span></button>
 
 <main class="app" id="top">
   <section class="search-pane">
